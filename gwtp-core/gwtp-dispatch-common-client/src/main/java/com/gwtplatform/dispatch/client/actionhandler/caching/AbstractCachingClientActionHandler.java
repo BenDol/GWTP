@@ -48,18 +48,19 @@ import com.gwtplatform.dispatch.shared.DispatchRequest;
  * Flexibility of cache implementation to support custom caching
  * </li>
  * </ol>
+ * @deprecated use {@link com.gwtplatform.dispatch.rpc.client.interceptor.caching.AbstractCachingRpcInterceptor}
  *
  * @param <A> The type of the action.
  * @param <R> The type of the result.
  */
+@Deprecated
 public abstract class AbstractCachingClientActionHandler<A, R> extends AbstractClientActionHandler<A, R> {
     private final Cache cache;
 
     // Holds callbacks, so that for multiple requests before the first returns (is served), we save round trips as well
     private Map<A, List<CallbackDispatchRequest<R>>> pendingRequestCallbackMap = Maps.newHashMap();
 
-    public AbstractCachingClientActionHandler(Class<A> actionType,
-                                              Cache cache) {
+    public AbstractCachingClientActionHandler(Class<A> actionType, Cache cache) {
         super(actionType);
         this.cache = cache;
     }

@@ -20,7 +20,10 @@ package com.gwtplatform.dispatch.client.actionhandler;
  * This exception is thrown as a side-effect of an error calling {@link DefaultClientActionHandlerRegistry#register}.
  * A provider was registered to provide a client-side action handler for an action, but this action was not the same
  * action as specified by {@link ClientActionHandler#getActionType()}.
+ *
+ * @deprecated use {@link com.gwtplatform.dispatch.client.interceptor.InterceptorMismatchException}
  */
+@Deprecated
 public class ClientActionHandlerMismatchException extends RuntimeException {
     private final Class<?> requestedActionType;
     private final Class<?> supportedActionType;

@@ -19,6 +19,9 @@ package com.gwtplatform.dispatch.rpc.client;
 import com.gwtplatform.dispatch.rpc.shared.Action;
 import com.gwtplatform.dispatch.rpc.shared.Result;
 
+/**
+ * Default RPC dispatch hooks.
+ */
 public class DefaultRpcDispatchHooks implements RpcDispatchHooks {
     @Override
     public void onExecute(Action action, boolean undo) {
