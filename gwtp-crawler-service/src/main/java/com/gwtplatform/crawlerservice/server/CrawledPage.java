@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 ArcBees Inc.
+ * Copyright 2011 ArcBees Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -14,28 +14,29 @@
  * the License.
  */
 
-package com.gwtplatform.mvp.client.view;
+package com.gwtplatform.crawlerservice.server;
+
+import java.util.Date;
 
 /**
- * Positions the popup at the left and top coordinates.
+ * Crawled page interface.
  */
-public class TopLeftPopupPositioner extends PopupPositioner {
-    private final int left;
-    private final int top;
+public interface CrawledPage {
+    void setUrl(String url);
 
-    public TopLeftPopupPositioner(int left, int top) {
-        super();
-        this.left = left;
-        this.top = top;
-    }
+    String getUrl();
 
-    @Override
-    protected int getLeft(int popupWidth) {
-        return left;
-    }
+    void setFetchDate(Date fetchDate);
 
-    @Override
-    protected int getTop(int popupHeight) {
-        return top;
-    }
+    Date getFetchDate();
+
+    void setFetchInProgress(boolean fetchInProgress);
+
+    boolean isFetchInProgress();
+
+    void setContent(String content);
+
+    String getContent();
+
+    boolean isExpired(long cachedPageTimeoutSec);
 }
