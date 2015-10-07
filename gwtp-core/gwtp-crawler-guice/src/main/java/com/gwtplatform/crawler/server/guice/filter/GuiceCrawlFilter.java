@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 ArcBees Inc.
+ * Copyright 2015 ArcBees Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.gwtplatform.crawler.server.guice;
+package com.gwtplatform.crawler.server.guice.filter;
 
 import java.util.logging.Logger;
 
@@ -22,9 +22,11 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import com.gwtplatform.crawler.server.CrawlFilter;
+import com.gwtplatform.crawler.server.guice.ServiceKey;
 
 /**
  * Guice implementation for the {@link CrawlFilter}.
+ * @author Ben Dol
  */
 @Singleton
 public final class GuiceCrawlFilter extends CrawlFilter {

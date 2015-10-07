@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 ArcBees Inc.
+ * Copyright 2015 ArcBees Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.gwtplatform.crawler.server.guice;
+package com.gwtplatform.crawler.server.guice.service;
 
 import java.util.logging.Logger;
 
@@ -25,9 +25,11 @@ import com.gargoylesoftware.htmlunit.WebClient;
 import com.google.inject.Inject;
 import com.gwtplatform.crawler.server.AbstractCrawlServiceServlet;
 import com.gwtplatform.crawler.server.CrawlCacheService;
+import com.gwtplatform.crawler.server.guice.ServiceKey;
 
 /**
  * Guice Crawl Service Servlet.
+ * @author Ben Dol
  */
 @Singleton
 public class CrawlServiceServlet extends AbstractCrawlServiceServlet {

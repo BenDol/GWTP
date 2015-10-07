@@ -14,26 +14,22 @@
  * the License.
  */
 
-package com.gwtplatform.crawler.server;
+package com.gwtplatform.crawler.server.spring.filter;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+
+import com.gwtplatform.crawler.server.spring.AbstractCrawlerModule;
 
 /**
- * Default crawl cache service implementation.
+ * Abstract crawl filter module for {@link @Configuration} setup.
  * @author Ben Dol
  */
-public class DefaultCrawlCacheService implements CrawlCacheService<DefaultCrawledPage> {
-    @Override
-    public DefaultCrawledPage createCrawledPage() {
-        return new DefaultCrawledPage();
-    }
+@ComponentScan(basePackages = {
+        "com.gwtplatform.crawler.server.spring.filter"
+        })
+public abstract class AbstractCrawlFilterModule extends AbstractCrawlerModule {
 
-    @Override
-    public DefaultCrawledPage getCachedPage(String url) {
-        return null;
-    }
-
-    @Override
-    public void saveCachedPage(DefaultCrawledPage crawledPage) { }
-
-    @Override
-    public void deleteCachedPage(DefaultCrawledPage crawledPage) { }
+    @Bean
+    protected abstract String serviceUrl();
 }

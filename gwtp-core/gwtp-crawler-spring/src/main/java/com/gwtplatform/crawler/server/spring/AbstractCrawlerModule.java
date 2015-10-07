@@ -14,26 +14,22 @@
  * the License.
  */
 
-package com.gwtplatform.crawler.server;
+package com.gwtplatform.crawler.server.spring;
+
+import java.util.logging.Logger;
+
+import org.springframework.context.annotation.Bean;
 
 /**
- * Default crawl cache service implementation.
+ * Abstract crawler module for {@link @Configuration} setup.
  * @author Ben Dol
  */
-public class DefaultCrawlCacheService implements CrawlCacheService<DefaultCrawledPage> {
-    @Override
-    public DefaultCrawledPage createCrawledPage() {
-        return new DefaultCrawledPage();
+public abstract class AbstractCrawlerModule {
+    @Bean
+    protected Logger crawlLogger() {
+        return Logger.getAnonymousLogger();
     }
 
-    @Override
-    public DefaultCrawledPage getCachedPage(String url) {
-        return null;
-    }
-
-    @Override
-    public void saveCachedPage(DefaultCrawledPage crawledPage) { }
-
-    @Override
-    public void deleteCachedPage(DefaultCrawledPage crawledPage) { }
+    @Bean
+    protected abstract String crawlKey();
 }

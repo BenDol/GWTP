@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 ArcBees Inc.
+ * Copyright 2015 ArcBees Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.gwtplatform.crawler.server.spring;
+package com.gwtplatform.crawler.server.spring.filter;
 
 import java.util.logging.Logger;
 
@@ -25,15 +25,17 @@ import org.springframework.web.WebApplicationInitializer;
 import com.gwtplatform.crawler.server.CrawlFilter;
 
 /**
- * Spring implementation for the {@link CrawlFilter}.<br>
+ * Spring implementation for the {@link CrawlFilter}.<br/>
  * Required bean dependencies are:
  * <ul>
  *     <li>serviceUrl (String): Url for the crawler service.</li>
  *     <li>crawlKey (String): Unique key for the crawler service.</li>
- *     <li>logger (Logger): Logger for the crawl filter.</li>
+ *     <li>crawlLogger (Logger): Logger for the crawl filter.</li>
  * </ul>
- *
- * Register in web.xml like so:
+ * Extend the {@link AbstractCrawlFilterModule} with
+ * {@link org.springframework.beans.factory.annotation.Configurable} class.
+ * <br/>
+ * Then register inside web.xml like so:
  * <pre>
  * {@code
  * <filter>
@@ -45,7 +47,7 @@ import com.gwtplatform.crawler.server.CrawlFilter;
  *         <url-pattern>/*</url-pattern>
  *     </filter-mapping>}
  * </pre>
- * or using {@link WebApplicationInitializer}:
+ * or instead using {@link WebApplicationInitializer}:
  * <pre>
  *   servletContext.addFilter("crawlFilter", new DelegatingFilterProxy())
  *      .addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST), true, "/*");
@@ -57,7 +59,7 @@ import com.gwtplatform.crawler.server.CrawlFilter;
 public final class SpringCrawlFilter extends CrawlFilter {
 
     @Autowired
-    SpringCrawlFilter(String serviceUrl, String crawlKey, Logger logger) {
-        super(serviceUrl, crawlKey, logger);
+    SpringCrawlFilter(String serviceUrl, String crawlKey, Logger crawlLogger) {
+        super(serviceUrl, crawlKey, crawlLogger);
     }
 }
