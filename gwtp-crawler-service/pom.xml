@@ -82,7 +82,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>gwtp-crawler</artifactId>
+            <artifactId>gwtp-crawler-guice</artifactId>
             <version>${project.version}</version>
         </dependency>
 
@@ -95,12 +95,6 @@
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
             <version>${javax.inject.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>net.sourceforge.htmlunit</groupId>
-            <artifactId>htmlunit</artifactId>
-            <version>${htmlunit.version}</version>
         </dependency>
 
         <dependency>
