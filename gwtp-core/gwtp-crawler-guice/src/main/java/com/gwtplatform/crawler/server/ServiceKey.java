@@ -16,11 +16,11 @@
 
 package com.gwtplatform.crawler.server;
 
-import com.google.inject.BindingAnnotation;
-import com.gwtplatform.crawler.server.guice.service.CrawlServiceServlet;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
+
+import com.google.inject.BindingAnnotation;
+import com.gwtplatform.crawler.server.guice.service.CrawlServiceServlet;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
@@ -32,6 +32,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * {@link CrawlServiceServlet}. For example:
  * <pre>bindConstant().annotatedWith(ServiceKey.class).to("123456");
  * </pre>
+ *
  * @deprecated Please use {@link com.gwtplatform.crawler.server.guice.ServiceKey} instead.
  */
 @BindingAnnotation

@@ -35,7 +35,7 @@ Get high quality support through ArcBees.
 1.5 - Released on 19 August 2015
 
 ###Current Snapshot
-1.6-SNAPSHOT
+1.6.1-SNAPSHOT
 
 ##Demos
 * [GWTP Samples Project Home](https://github.com/ArcBees/GWTP-Samples)
